@@ -6,6 +6,13 @@ import { gql, useQuery, useMutation } from '@apollo/client';
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
 
+type Review = {
+  id: number;
+  content: string;
+  user: string;
+  createdAt: string;
+};
+
 const CREATE_REVIEW = gql`
   mutation CreateReview($bookId: Int!, $content: String!, $user: String!) {
     createReview(bookId: $bookId, content: $content, user: $user) {
@@ -60,7 +67,7 @@ export default function BookDetailPage() {
         <h2 className="text-xl font-bold mb-4">Reviews</h2>
         {reviews.length === 0 && <p className="text-gray-500">No reviews yet.</p>}
         <ul className="space-y-4 mb-6">
-          {reviews.map((review: any) => (
+          {reviews.map((review: Review) => (
             <li key={review.id} className="border-b pb-2">
               <div className="font-semibold">{review.user}</div>
               <div>{review.content}</div>

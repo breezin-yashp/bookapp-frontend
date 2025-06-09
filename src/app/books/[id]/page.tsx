@@ -62,7 +62,6 @@ export default function BookDetailPage() {
           ← Back to Books
       </button>
   <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-12 gap-8">
-    {/* Left Column */}
     <div className="md:col-span-4 p-4 border rounded-lg">
       <h1 className="text-3xl font-bold mb-4">{book.title}</h1>
       <p className="text-gray-700 mb-4">{book.description}</p>
@@ -79,7 +78,6 @@ export default function BookDetailPage() {
       )}
     </div>
 
-    {/* Right Column */}
     <div className="md:col-span-8 p-4 border rounded-lg">
       <h2 className="text-xl font-bold mb-4">Reviews</h2>
       {reviews.length === 0 && <p className="text-gray-500 mb-4">No reviews yet.</p>}
